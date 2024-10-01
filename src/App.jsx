@@ -8,6 +8,10 @@ import Payment from './assets/Components/Payment'
 import Hero from './assets/Components/Hero'
 import Categories from './assets/Components/Categories'
 import SittingRoom from './assets/Components/SittingRoom'
+import ViewProduct from './assets/Components/ViewProduct'
+import ArticleHero from './assets/Components/ArticleHero'
+import Footer from './assets/Components/Footer'
+import Cart from './assets/Components/Cart'
 
 
 function App() {
@@ -56,6 +60,68 @@ function App() {
     },
   ]
 
+
+  const articleData = [
+    {
+      img : './article-01.jpeg',
+      header : "The Art of Minimalism How <br/> to Achieve a Sleek Look",
+      detail: "Discover tips and tricks for adopting a <br/> minimalist approach to interior design and creating"
+
+    },
+    {
+      img: "./article-02.jpeg",
+      header : "The Art of Minimalism How <br/> to Achieve a Sleek Look",
+      detail: "Discover tips and tricks for adopting a <br/> minimalist approach to interior design and creating"
+
+    },
+    {
+      img: "./article-03.png",
+      header : "The Art of Minimalism How <br/> to Achieve a Sleek Look",
+      detail: "Discover tips and tricks for adopting a <br/> minimalist approach to interior design and creating"
+
+    },
+    {
+      img: "./article-04.jpeg",
+      header : "The Art of Minimalism How <br/> to Achieve a Sleek Look",
+      detail: "Discover tips and tricks for adopting a <br/> minimalist approach to interior design and creating"
+
+    },
+    {
+      img: "./article-05.jpeg",
+      header : "The Art of Minimalism How <br/> to Achieve a Sleek Look",
+      detail: "Discover tips and tricks for adopting a <br/> minimalist approach to interior design and creating"
+
+    },
+    {
+      img: "./article-06.jpeg",
+      header : "The Art of Minimalism How <br/> to Achieve a Sleek Look",
+      detail: "Discover tips and tricks for adopting a <br/> minimalist approach to interior design and creating"
+
+    },
+    {
+      img: "./article-07.jpeg",
+      header : "The Art of Minimalism How <br/> to Achieve a Sleek Look",
+      detail: "Discover tips and tricks for adopting a <br/> minimalist approach to interior design and creating"
+
+    },
+  ]
+
+  const cartData = [
+    {
+      img: "./article-07.jpeg",
+      name : "Luxe Armchair - Left Arm Chute",
+      price : 899,
+    },
+    {
+      img: "./article-07.jpeg",
+      name : "Luxe Armchair - Left Arm Chute",
+      price : 899,
+    },
+    
+  
+    
+  ]
+
   return (
     <div className='pb-[30px] overflow-x-clip'>
     
@@ -65,10 +131,18 @@ function App() {
     <Checkout/>
     <Payment/> */}
 
-    <Hero/>
-    <Categories/>
-    <SittingRoom topProductsData={topProductsData}/>
-      
+    {/* <Hero/> */}
+    {/* <Categories/> */}
+    {/* <SittingRoom topProductsData={topProductsData}/> */}
+    
+    {/* <ViewProduct/> */}
+
+    {/* <ArticleHero articleData={articleData}/> */}
+
+      {/* <Footer/> */}
+
+
+    <Cart cartData={cartData}/>      
     </div>
   )
 }
