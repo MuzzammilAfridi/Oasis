@@ -1,5 +1,6 @@
 // src/components/Checkout.js
 import React, { useState } from 'react';
+import Navbar from './Navbar';
 
 const Checkout = () => {
   const [formData, setFormData] = useState({
@@ -23,18 +24,24 @@ const Checkout = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+
+    <div className="max-h-screen ">
+      <Navbar/>
+      
+      <div className="bg-white mt-1 p-8 w-full max-w-md">
         <h2 className="text-2xl font-semibold text-center mb-6">Checkout</h2>
+        <p className='text-[18px] mt-4 leading-[21.78px] font-medium text-[#5f6980]'>Customer Information</p>
+        <p className='text-[16px] mb-4 font-semibold leading-[19.36px]'>Have an account? <span className=' text-[#7c71df]'>Login</span></p>
         
         <form onSubmit={handleSubmit}>
           {/* Email */}
           <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700">Email</label>
+            
             <input 
               type="email" 
               name="email" 
               id="email" 
+              placeholder='Email'
               value={formData.email} 
               onChange={handleChange} 
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
@@ -42,12 +49,15 @@ const Checkout = () => {
             />
           </div>
 
+          <p className='text-[18px] leading-[21.78px] font-medium text-[#5f6980] mb-3'>Shipping address</p>
+
           {/* First Name */}
           <div className="mb-4">
-            <label htmlFor="firstName" className="block text-gray-700">First Name</label>
+            
             <input 
               type="text" 
               name="firstName" 
+              placeholder='First Name'
               id="firstName" 
               value={formData.firstName} 
               onChange={handleChange} 
@@ -58,11 +68,11 @@ const Checkout = () => {
 
           {/* Last Name */}
           <div className="mb-4">
-            <label htmlFor="lastName" className="block text-gray-700">Last Name</label>
             <input 
               type="text" 
               name="lastName" 
-              id="lastName" 
+              id="lastName"
+              placeholder='Last Name' 
               value={formData.lastName} 
               onChange={handleChange} 
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
@@ -72,11 +82,11 @@ const Checkout = () => {
 
           {/* Mobile Number */}
           <div className="mb-4">
-            <label htmlFor="mobileNumber" className="block text-gray-700">Mobile Number</label>
             <input 
               type="text" 
               name="mobileNumber" 
-              id="mobileNumber" 
+              id="mobileNumber"
+              placeholder='Enter your Mobile Number' 
               value={formData.mobileNumber} 
               onChange={handleChange} 
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
@@ -86,11 +96,11 @@ const Checkout = () => {
 
           {/* Address */}
           <div className="mb-4">
-            <label htmlFor="address" className="block text-gray-700">Address</label>
             <input 
               type="text" 
               name="address" 
               id="address" 
+              placeholder='Address'
               value={formData.address} 
               onChange={handleChange} 
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
@@ -100,11 +110,11 @@ const Checkout = () => {
 
           {/* City */}
           <div className="mb-4">
-            <label htmlFor="city" className="block text-gray-700">City</label>
             <input 
               type="text" 
               name="city" 
               id="city" 
+              placeholder='City'
               value={formData.city} 
               onChange={handleChange} 
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
@@ -114,10 +124,10 @@ const Checkout = () => {
 
           {/* Country */}
           <div className="mb-6">
-            <label htmlFor="country" className="block text-gray-700">Country</label>
             <input 
               type="text" 
               name="country" 
+              placeholder='Country'
               id="country" 
               value={formData.country} 
               onChange={handleChange} 
@@ -129,7 +139,7 @@ const Checkout = () => {
           {/* Submit Button */}
           <button 
             type="submit" 
-            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            className="w-screen absolute bottom-0 left-0 bg-[#7c71df] h-[63px] text-white py-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
             Proceed to Payment
           </button>
         </form>

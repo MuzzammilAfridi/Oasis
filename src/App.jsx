@@ -12,6 +12,9 @@ import ViewProduct from './assets/Components/ViewProduct'
 import ArticleHero from './assets/Components/ArticleHero'
 import Footer from './assets/Components/Footer'
 import Cart from './assets/Components/Cart'
+import OderPlaced from './assets/Components/OderPlaced'
+import FAQ from './assets/Components/FAQ'
+// import Design from './assets/Components/Design'
 
 
 function App() {
@@ -123,26 +126,33 @@ function App() {
   ]
 
   return (
-    <div className='pb-[30px] overflow-x-clip'>
+    <div className=' overflow-x-clip'>
     
-    {/* <LoginPage/>
-    <CreateAccount/>
-    <ForgotPassword/>
-    <Checkout/>
-    <Payment/> */}
+    {/* <LoginPage/> */}
+    {/* <CreateAccount/> */}
+    {/* <ForgotPassword/> */}
+     {/* <Checkout/> */}
+   {/* <Payment/> */}
 
-    {/* <Hero/> */}
-    {/* <Categories/> */}
-    {/* <SittingRoom topProductsData={topProductsData}/> */}
+   {/* <OderPlaced/> */}
+
+   {/* <FAQ/> */}
+
+   {/* <Design/> */}
+
+    <Hero/>
+    <Categories/>
+    <SittingRoom topProductsData={topProductsData}/>
     
-    {/* <ViewProduct/> */}
+    <ViewProduct/>
 
-    {/* <ArticleHero articleData={articleData}/> */}
+    <ArticleHero articleData={articleData}/>
 
-      {/* <Footer/> */}
 
 
     <Cart cartData={cartData}/>      
+    <Footer/>
+
     </div>
   )
 }

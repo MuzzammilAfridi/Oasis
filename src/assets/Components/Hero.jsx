@@ -1,25 +1,33 @@
-import React from 'react'
-import Navbar from './Navbar'
+import React from 'react';
+import Navbar from './Navbar';
 
 const Hero = () => {
   return (
-    <div className='max-w-[393px] h-[569px]'>
-      <Navbar/>
-      <div >
-        <h1 className='mt-2 mb-4 font-semibold text-center min-w-[129px] h-[17px] text-[14px] leading-[16.94px] text-black '>FURNITURE STORE</h1>
-        <h3 className='text-center w-[361px] h-[90px] text-[25px] font-semibold leading-[30.26px] text-[background: var(--text-heading-main, #2E2F33);
-]'>Discover the Artistry of <br /> Modern Contemporary Furniture</h3>
-        <p className='text-center w-[361px] text-[16px] font-normal text-[background: var(--text-body, #2E2F33);
-] h-[76px] leading-[19.36px] my-4'>Experience the elegance and functionality of cutting-edge design where luxury meets innovation in every piece for ultimate relaxation</p>
+    <div className='max-w-[393px] sm:max-w-screen h-[569px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] mx-auto'>
+      <Navbar />
+      <div>
+        <h1 className='mt-2 mb-4 font-semibold text-center text-[14px] leading-[16.94px] text-black'>
+          FURNITURE STORE
+        </h1>
+
+        <h3 className='text-center w-[361px] sm:w-screen sm:relative sm:bottom-5 mx-auto text-[25px] md:text-[30px] lg:text-[35px] xl:text-[61px] font-semibold leading-[30.26px] lg:leading-[64px] text-black'>
+          Discover the Artistry of  Modern Contemporary Furniture
+        </h3>
+
+        <p className='text-center w-[361px] sm:w-screen sm:relative sm:bottom-5 mx-auto text-[16px] md:text-[18px] lg:text-[20px] text-gray-600 h-[76px] leading-[19.36px] my-4'>
+          Experience the elegance and functionality of cutting-edge design where luxury meets innovation in every piece for <br /> ultimate relaxation
+        </p>
       </div>
 
-
-      <div className='flex items-center justify-center'>
-        <img className='w-[361px] h-[236px] p-[10px]' src="./hero-img.jpeg" alt="img" />
+      <div className='flex items-center justify-center sm:relative sm:bottom-14'>
+        <img
+          className='w-[361px] rounded-xl sm:w-[70vw] h-auto sm:h-[60vh]  p-[10px]'
+          src='./hero-img.jpeg'
+          alt='Furniture'
+        />
       </div>
+    </div>
+  );
+};
 
-      </div>
-  )
-}
-
-export default Hero
+export default Hero;
