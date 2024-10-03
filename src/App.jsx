@@ -5,7 +5,7 @@ import CreateAccount from './assets/Components/CreateAccount'
 import ForgotPassword from './assets/Components/ForgotPassword'
 import Checkout from './assets/Components/Checkout'
 import Payment from './assets/Components/Payment'
-import Hero from './assets/Components/Hero'
+import HeroSection from './assets/Components/HeroSection'
 import Categories from './assets/Components/Categories'
 import SittingRoom from './assets/Components/SittingRoom'
 import ViewProduct from './assets/Components/ViewProduct'
@@ -14,6 +14,9 @@ import Footer from './assets/Components/Footer'
 import Cart from './assets/Components/Cart'
 import OderPlaced from './assets/Components/OderPlaced'
 import FAQ from './assets/Components/FAQ'
+import Design from './assets/Components/Design'
+import { Route, Routes } from 'react-router-dom'
+import TopProducts from './assets/Components/TopProducts'
 // import Design from './assets/Components/Design'
 
 
@@ -126,7 +129,30 @@ function App() {
   ]
 
   return (
-    <div className=' overflow-x-clip'>
+
+    <Routes>
+      <Route path='/' element={<HeroSection/>}/>
+      <Route path='/login' element={<LoginPage/>}/>
+      <Route path='/createAccount' element={<CreateAccount/>}/>
+      <Route path='/forgot' element={<ForgotPassword/>}/>
+      <Route path='/checkout' element={<Checkout/>}/>
+      <Route path='/payment' element={<Payment/>}/>
+      <Route path='/order' element={<OderPlaced/>}/>
+      <Route path='/shop' element={<TopProducts topProductsData={topProductsData}/>}/>
+      <Route path='/view' element={<ViewProduct/>}/>
+      <Route path='/blog' element={<ArticleHero articleData={articleData}/>}/>
+      <Route path='/categories' element={<Categories/>}/>
+
+
+
+
+
+
+
+
+
+
+    {/* <div className=' overflow-x-clip'> */}
     
     {/* <LoginPage/> */}
     {/* <CreateAccount/> */}
@@ -140,20 +166,21 @@ function App() {
 
    {/* <Design/> */}
 
-    <Hero/>
-    <Categories/>
-    <SittingRoom topProductsData={topProductsData}/>
+    {/* <HeroSection/> */}
+    {/* <Categories/> */}
     
-    <ViewProduct/>
+    {/* <ViewProduct/> */}
 
-    <ArticleHero articleData={articleData}/>
+    {/* <ArticleHero articleData={articleData}/> */}
 
 
 
-    <Cart cartData={cartData}/>      
-    <Footer/>
 
-    </div>
+    {/* <Cart cartData={cartData}/>       */}
+    {/* <Footer/> */}
+
+    {/* </div> */}
+    </Routes>
   )
 }
 
