@@ -64,6 +64,71 @@ function App() {
       name : "Faux Leat...",
       price : "$129"
     },
+    {
+      img : './top-09.png',
+      name : "Faux Leat...",
+      price : "$129"
+    },
+    {
+      img : './Top-10.png',
+      name : "Faux Leat...",
+      price : "$129"
+    },
+    {
+      img : './top-11.png',
+      name : "Faux Leat...",
+      price : "$129"
+    },
+    {
+      img : './top-12.png',
+      name : "Faux Leat...",
+      price : "$129"
+    },
+    {
+      img : './top-13.png',
+      name : "Faux Leat...",
+      price : "$129"
+    },
+    {
+      img : './top-14.png',
+      name : "Faux Leat...",
+      price : "$129"
+    },
+    {
+      img : './top-15.png',
+      name : "Faux Leat...",
+      price : "$129"
+    },
+    {
+      img : './top-16.png',
+      name : "Faux Leat...",
+      price : "$129"
+    },
+    {
+      img : './top-17.png',
+      name : "Faux Leat...",
+      price : "$129"
+    },
+    {
+      img : './top-18.png',
+      name : "Faux Leat...",
+      price : "$129"
+    },
+    {
+      img : './top-19.png',
+      name : "Faux Leat...",
+      price : "$129"
+    },
+    {
+      img : './top-20.png',
+      name : "Faux Leat...",
+      price : "$129"
+    },
+    {
+      img : './top-21.png',
+      name : "Faux Leat...",
+      price : "$129"
+    },
   ]
 
 
