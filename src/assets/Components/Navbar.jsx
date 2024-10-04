@@ -6,8 +6,8 @@ function Navbar({ handleGetStartedClick }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-md">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+    <nav className="bg-white shadow-md ">
+      <div className="container mx-auto px-4 py-3 bg-cyan-400 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
         <svg width="51" height="19" viewBox="0 0 51 19" fill="none" xmlns="http://www.w3.org/2000/svg">
