@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import LoginPage from './LoginPage';
+import Categories from './Categories';
+import TopProducts from './TopProducts';
+import FAQ from './FAQ';
+import Footer from './Footer';
 
-const HeroSection = () => {
+const HeroSection = ({topProductsData}) => {
   const [showLogin, setShowLogin] = useState(false);
 
   const handleGetStartedClick = () => {
@@ -45,6 +49,11 @@ const HeroSection = () => {
           </div>
         )}
       </div>
+      <Categories/>
+      <TopProducts topProductsData={topProductsData}/>
+      <FAQ/>
+      <Footer/>
+
     </div>
   );
 };

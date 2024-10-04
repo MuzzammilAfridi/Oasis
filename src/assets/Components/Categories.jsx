@@ -1,5 +1,6 @@
 import React from 'react'
 // import Category from './Category'
+import { Link } from 'react-router-dom'
 
 const Categories = () => {
   return (
@@ -9,10 +10,14 @@ const Categories = () => {
         {/* <Category/>
         <Category/>
         <Category/> */}
+        <Link to='/sittingRoom'>
         <div className='w-[361px] rounded-lg  sm:w-[85vw]  h-[173px] sm:h-[303px] overflow-hidden bg-[#F3F4F7] flex items-center justify-center sm:justify-between'>
+          
       <p className='relative whitespace-nowrap left-16 font-semibold sm:text-[34px]'>Sitting Room</p>
       <img className=' relative left-[145px] sm:relative sm:left-44 h-[203px] sm:h-[110%]' src="./Cate-01.png" alt="img" />
+     
     </div>
+    </Link>
 
     <div  className="sm:flex gap-5">
     <div className=' w-[361px] rounded-lg  sm:w-[42vw]  h-[173px] sm:h-[303px] overflow-hidden bg-[#F3F4F7] flex items-center justify-between sm:justify-between'>

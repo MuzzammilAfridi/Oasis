@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 const Cart = ({ cartData }) => {
   return (
@@ -85,6 +86,7 @@ const Cart = ({ cartData }) => {
           Next
         </button>
       </div>
+      <Footer/>
     </div>
   );
 }

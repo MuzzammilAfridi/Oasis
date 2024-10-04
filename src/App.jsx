@@ -17,6 +17,7 @@ import FAQ from './assets/Components/FAQ'
 import Design from './assets/Components/Design'
 import { Route, Routes } from 'react-router-dom'
 import TopProducts from './assets/Components/TopProducts'
+import Shop from './assets/Components/Shop'
 // import Design from './assets/Components/Design'
 
 
@@ -196,17 +197,18 @@ function App() {
   return (
 
     <Routes>
-      <Route path='/' element={<HeroSection/>}/>
+      <Route path='/' element={<HeroSection topProductsData={topProductsData}/>}/>
       <Route path='/login' element={<LoginPage/>}/>
       <Route path='/createAccount' element={<CreateAccount/>}/>
       <Route path='/forgot' element={<ForgotPassword/>}/>
       <Route path='/checkout' element={<Checkout/>}/>
       <Route path='/payment' element={<Payment/>}/>
       <Route path='/order' element={<OderPlaced/>}/>
-      <Route path='/shop' element={<TopProducts topProductsData={topProductsData}/>}/>
+      <Route path='/shop' element={<Shop topProductsData={topProductsData}/>}/>
       <Route path='/view' element={<ViewProduct/>}/>
       <Route path='/blog' element={<ArticleHero articleData={articleData}/>}/>
       <Route path='/categories' element={<Categories/>}/>
+      <Route path='/sittingRoom'  element={<SittingRoom  topProductsData={topProductsData}/>}/>
 
 
 
