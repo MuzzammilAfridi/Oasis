@@ -194,10 +194,39 @@ function App() {
     
   ]
 
-  return (
 
+  const designData = [
+    {
+      img:"./design-01.png"
+    },
+    {
+      img:"./design-02.png"
+    },
+    {
+      img:"./design-03.png"
+    },
+    {
+      img:"./design-04.png"
+    },
+    {
+      img:"./design-05.png"
+    },
+    {
+      img:"./design-06.png"
+    },
+    {
+      img:"./design-07.png"
+    },
+    {
+      img:"./design-08.png"
+    },
+    
+  ]
+
+  return (
+    <div className="overflow-x-clip">
     <Routes>
-      <Route path='/' element={<HeroSection topProductsData={topProductsData}/>}/>
+      <Route path='/' element={<HeroSection topProductsData={topProductsData} designData={designData}/>}/>
       <Route path='/login' element={<LoginPage/>}/>
       <Route path='/createAccount' element={<CreateAccount/>}/>
       <Route path='/forgot' element={<ForgotPassword/>}/>
@@ -248,6 +277,7 @@ function App() {
 
     {/* </div> */}
     </Routes>
+    </div>
   )
 }
 

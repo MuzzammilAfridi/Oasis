@@ -5,8 +5,9 @@ import Categories from './Categories';
 import TopProducts from './TopProducts';
 import FAQ from './FAQ';
 import Footer from './Footer';
+import Design from './Design';
 
-const HeroSection = ({topProductsData}) => {
+const HeroSection = ({topProductsData, designData}) => {
   const [showLogin, setShowLogin] = useState(false);
 
   const handleGetStartedClick = () => {
@@ -14,7 +15,10 @@ const HeroSection = ({topProductsData}) => {
   };
 
   const handleCloseLogin = () => {
+    
     setShowLogin(false); // Hide login page
+    e.stopPropagation(); // Prevent any parent click handlers from firing
+    onClose();
   };
 
   return (
@@ -44,13 +48,14 @@ const HeroSection = ({topProductsData}) => {
         
         {/* Login Page: Only visible when showLogin is true */}
         {showLogin && (
-          <div className="sm:w-1/2 w-screen h-screen bg-white p-4 fixed right-0 top-0 z-50 transition-all duration-500">
+          <div className="sm:w-[52vw] w-screen h-screen  fixed right-0 top-0 z-50 transition-all duration-500">
             <LoginPage onClose={handleCloseLogin} />
           </div>
         )}
       </div>
       <Categories/>
       <TopProducts topProductsData={topProductsData}/>
+      <Design designData={designData}/>
       <FAQ/>
       <Footer/>
 

@@ -1,15 +1,16 @@
 import { FaGoogle, FaApple } from 'react-icons/fa';
 import { FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+
 // import Navbar from './Navbar';
 
 function LoginPage({ onClose }) {
   return (
-    <div className="relative">
+    <div className="relative  ">
       {/* Close Button */}
       <button
         onClick={onClose}
-        className="absolute top-4 left-4 text-gray-500 hover:text-gray-700 transition"
+        className="absolute w-full top-4 left-[66vw] z-50 text-gray-500 hover:text-gray-700 transition"
       >
         <FiX size={24} />
       </button>
@@ -17,7 +18,7 @@ function LoginPage({ onClose }) {
       <Navbar />
       </div> */}
       
-      <div className="flex  items-center justify-center min-h-screen bg-white">
+      <div className="flex  items-center sm:max-h-screen overflow-y-hidden shadow-lg border sm:w-[1/2] sm:absolute top-0 right-0 justify-center min-h-screen ">
         <div className="w-full max-w-md bg-white p-8">
           <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
           <div className="flex flex-col justify-center items-center mb-6">
