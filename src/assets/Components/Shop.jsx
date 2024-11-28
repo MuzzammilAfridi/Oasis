@@ -6,7 +6,7 @@ const Shop = ({topProductsData}) => {
   return (
     <div>
       <div className=" w-full  max-h-[2897px]  mx-auto">
-        <Navbar/>
+        {/* <Navbar/> */}
       <h2 className="text-[20px] mt-5 sm:mx-14 text-[#2E2F33] leading-[24.2px] font-bold">
         Top Products
       </h2>

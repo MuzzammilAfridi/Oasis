@@ -1,25 +1,30 @@
 import { FaGoogle, FaApple } from 'react-icons/fa';
-import { FiX } from 'react-icons/fi';
+// import { FiX } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 // import Navbar from './Navbar';
 
-function LoginPage({ onClose }) {
+function LoginPage({ setOpen, open, setSignUp, signUp }) {
+  const handleClose = ()=>{
+    console.log("X button is Clicked");
+    setSignUp(false)
+    setOpen(false)
+
+  }
+
+  const handleSignup = ()=>{
+    setSignUp(!signUp)
+    console.log("Sign Up is Clicked");
+    
+  }
   return (
     <div className="relative  ">
-      {/* Close Button */}
-      <button
-        onClick={onClose}
-        className="absolute w-full top-4 left-[66vw] z-50 text-gray-500 hover:text-gray-700 transition"
-      >
-        <FiX size={24} />
-      </button>
-      {/* <div>
-      <Navbar />
-      </div> */}
+     
       
-      <div className="flex  items-center sm:max-h-screen overflow-y-hidden shadow-lg border sm:w-[1/2] sm:absolute top-0 right-0 justify-center min-h-screen ">
+      <div className="flex  items-center sm:max-h-screen overflow-y-hidden shadow-lg border bg-cyan-600 sm:w-[1/2] sm:absolute top-0 right-0 justify-center min-h-screen ">
         <div className="w-full max-w-md bg-white p-8">
+          <button className='font-semibold'
+          onClick={handleClose}>X</button>
           <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
           <div className="flex flex-col justify-center items-center mb-6">
             <img className="h-[127px] w-[127px] sm:h-[90px] sm:w-[90px]" src="./Plant.png" alt="img" />
@@ -70,9 +75,11 @@ function LoginPage({ onClose }) {
           <div  className="text-center sm:relative sm:bottom-3">
             <p className="text-sm text-gray-500">
               First time here?{' '}
-              <Link to="/createAccount" className="text-blue-500 hover:underline">
+              <button 
+              onClick={handleSignup}
+              className="text-blue-500 hover:underline">
                 Create an account
-              </Link>
+              </button>
             </p>
           </div>
         </div>

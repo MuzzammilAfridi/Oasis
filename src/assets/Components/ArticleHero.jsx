@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 const ArticleHero = ({ articleData }) => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
 
       {/* Hero Section */}
       <div className='w-full px-3 sm:px-5 lg:px-10 mt-5'>

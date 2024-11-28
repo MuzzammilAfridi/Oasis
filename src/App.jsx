@@ -223,11 +223,31 @@ function App() {
     
   ]
 
+  const [open, setOpen] = useState(false)
+  const [signUp, setSignUp] = useState(false)
+
+  
+  
+  
+
   return (
+
+    
     <div className="overflow-x-clip">
+      <Navbar setOpen={setOpen} open={open} />
+
+      {open && !signUp && (  <div className="sm:w-[52vw] w-screen h-screen  fixed right-0 top-0 z-50 transition-all duration-500">
+        <LoginPage setOpen={setOpen} open={open} signUp={signUp} setSignUp={setSignUp} />
+          </div>)}
+      {signUp && (  <div className="sm:max-w-[40vw] w-screen min-h-screen  fixed right-0 top-0 z-50 transition-all duration-500">
+        <CreateAccount setOpen={setOpen} setSignUp={setSignUp} />
+          </div>)}
+
+
+     
     <Routes>
       <Route path='/' element={<HeroSection topProductsData={topProductsData} designData={designData}/>}/>
-      <Route path='/login' element={<LoginPage/>}/>
+      <Route path='/login' element={<LoginPage setOpen={setOpen} open={open}/>}/>
       <Route path='/createAccount' element={<CreateAccount/>}/>
       <Route path='/forgot' element={<ForgotPassword/>}/>
       <Route path='/checkout' element={<Checkout/>}/>

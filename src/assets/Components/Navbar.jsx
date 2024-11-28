@@ -2,8 +2,11 @@ import { useState } from 'react';
 import { FiMenu, FiX, FiShoppingCart } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
-function Navbar({ handleGetStartedClick }) {
+function Navbar({ open, setOpen }) {
   const [isOpen, setIsOpen] = useState(false);
+   const handleGetStarted =()=>{
+    setOpen(!open)
+   }
 
   return (
     <nav className="bg-white shadow-md ">
@@ -45,7 +48,8 @@ function Navbar({ handleGetStartedClick }) {
           <li className="py-2 px-4 md:px-0 hover:text-blue-500">
             <Link to="/blog">Blog</Link>
           </li>
-          <li className="py-2 px-4 sm:hidden md:px-0 hover:text-blue-500" onClick={handleGetStartedClick}>
+          <li className="py-2 px-4 sm:hidden md:px-0 hover:text-blue-500" 
+         >
             <a href="#">Get Started</a>
           </li>
         </ul>
@@ -63,7 +67,8 @@ function Navbar({ handleGetStartedClick }) {
 
           <button
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-            onClick={handleGetStartedClick}
+            onClick={handleGetStarted}
+           
           >
             Get Started
           </button>

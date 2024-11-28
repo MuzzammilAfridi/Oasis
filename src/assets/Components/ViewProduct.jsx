@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 
 const ViewProduct = () => {
   return (
     <div className='w-full   sm:w-screen bg-white  h-fit pb-4'>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <div className='flex pl-4 sm:pl-10 flex-col sm:flex-row sm:items-center gap-5 mt-6 mb-8 items-start text-[#5F6980]'>
      <div className='flex gap-4'>

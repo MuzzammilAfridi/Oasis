@@ -8,25 +8,15 @@ import Footer from './Footer';
 import Design from './Design';
 
 const HeroSection = ({topProductsData, designData}) => {
-  const [showLogin, setShowLogin] = useState(false);
 
-  const handleGetStartedClick = () => {
-    setShowLogin(true); // Show login page
-  };
 
-  const handleCloseLogin = () => {
-    
-    setShowLogin(false); // Hide login page
-    e.stopPropagation(); // Prevent any parent click handlers from firing
-    onClose();
-  };
+
 
   return (
     <div className="relative max-w-[393px] sm:max-w-screen h-[569px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] mx-auto">
-      <Navbar handleGetStartedClick={handleGetStartedClick} />
       
       {/* Hero Content */}
-      <div className={`flex ${showLogin ? 'w-1/2' : 'w-full'} transition-all duration-500`}>
+      <div className={`flex transition-all duration-500`}>
         <div className="flex-1">
           <h1 className="mt-4 mb-4 font-semibold text-center text-[14px] leading-[16.94px] text-black">
             FURNITURE STORE
@@ -46,12 +36,9 @@ const HeroSection = ({topProductsData, designData}) => {
           </div>
         </div>
         
-        {/* Login Page: Only visible when showLogin is true */}
-        {showLogin && (
-          <div className="sm:w-[52vw] w-screen h-screen  fixed right-0 top-0 z-50 transition-all duration-500">
-            <LoginPage onClose={handleCloseLogin} />
-          </div>
-        )}
+       
+         
+       
       </div>
       <Categories/>
       <TopProducts topProductsData={topProductsData}/>
