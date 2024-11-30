@@ -1,12 +1,18 @@
 import { useState } from 'react';
 import { FiMenu, FiX, FiShoppingCart } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+// import { decrement, increment,addToCart } from '../../features/counter/counterSlice'
 
-function Navbar({ open, setOpen }) {
+
+function Navbar({ open, setOpen, count1 }) {
   const [isOpen, setIsOpen] = useState(false);
    const handleGetStarted =()=>{
     setOpen(!open)
    }
+
+   const qnt = useSelector((state) => state.counter.totalQuantity)
+  //  const dispatch = useDispatch()
 
   return (
     <nav className="bg-white shadow-md ">
@@ -57,9 +63,10 @@ function Navbar({ open, setOpen }) {
         {/* Right Side: Add to Cart and Get Started */}
         <div className="hidden md:flex items-center space-x-4">
           
-          <Link to="/view">
-          <button className="flex items-center text-gray-700 hover:text-blue-500">
-            <FiShoppingCart size={24} />
+          <Link to="/cartlist">
+          <button className="flex items-center relative text-gray-700 hover:text-blue-500">
+            <div className="bg-red-700 text-[10px] text-white flex items-center justify-center rounded-full w-3 absolute top-[2px] left-[10px] h-3">{qnt}</div>
+            <FiShoppingCart size={26} />
             <span className="ml-2">Cart</span>
           </button>
           

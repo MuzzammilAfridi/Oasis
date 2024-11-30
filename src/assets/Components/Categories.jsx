@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 
 const Categories = () => {
   return (
-    <div className='w-[375px] sm:mt-44 sm:w-screen p-[10px] sm:mb-52 max-h-[876px]'>
-        <h3 className='mb-4 sm:text-[35px] sm:my-16 sm:relative sm:top-6 sm:ml-24 font-semibold'>Categories</h3>
+    <div className='w-[375px] sm:mt-4 sm:w-screen p-[10px] sm:mb-52 max-h-[876px]'>
+        <h3 className='mb-4 sm:text-[35px] text-[24px] sm:mb-6 sm:relative sm:top-1 sm:ml-24 font-semibold'>Categories</h3>
         <div className='flex items-center  justify-center flex-col gap-4'>
         {/* <Category/>
         <Category/>

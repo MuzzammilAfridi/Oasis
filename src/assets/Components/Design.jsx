@@ -7,7 +7,7 @@ const Design = ({ designData }) => {
         {designData.map((elem, key) => (
           <img
             key={key} // Added key prop for each item
-            className='rounded-lg max-w-[47%]' // Adjust width for two columns
+            className='rounded-lg max-w-[47%] sm:min-w-[32%] sm:h-[450px]' // Adjust width for two columns
             src={elem.img}
             alt="img"
           />

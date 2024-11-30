@@ -18,37 +18,51 @@ import Design from './assets/Components/Design'
 import { Route, Routes } from 'react-router-dom'
 import TopProducts from './assets/Components/TopProducts'
 import Shop from './assets/Components/Shop'
+import CartList from './assets/Components/CartList'
+import SuccessPage from './assets/Components/SuccessPage.jsx'
+// import { Counter } from './features/counter/Counter'
 // import Design from './assets/Components/Design'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count1, setCount1] = useState(2)
 
   const topProductsData = [
     {
+      id: 1,
       img : './top-01.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
+  // { id: 1, name: 'Apple', price: 20 },
+
     {
+      id: 2,
       img : './top-02.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129,
+      qnt : 1
     },
     {
+      id: 3,
       img : './top-03.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129,
+      qnt : 1
     },
     {
+      id: 4,
       img : './top-04.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129,
+      qnt : 1
     },
     {
+      id: 5,
       img : './top-05.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129,
+      qnt : 1
     },
     {
       img : './top-06.png',
@@ -225,6 +239,9 @@ function App() {
 
   const [open, setOpen] = useState(false)
   const [signUp, setSignUp] = useState(false)
+  const [itemPrice, setItemPrice] = useState(0)
+  const [img, setImg] = useState('')
+  
 
   
   
@@ -234,7 +251,8 @@ function App() {
 
     
     <div className="overflow-x-clip">
-      <Navbar setOpen={setOpen} open={open} />
+      <Navbar setOpen={setOpen}  count1={count1} open={open} />
+      {/* <Counter/> */}
 
       {open && !signUp && (  <div className="sm:w-[52vw] w-screen h-screen  fixed right-0 top-0 z-50 transition-all duration-500">
         <LoginPage setOpen={setOpen} open={open} signUp={signUp} setSignUp={setSignUp} />
@@ -246,18 +264,20 @@ function App() {
 
      
     <Routes>
-      <Route path='/' element={<HeroSection topProductsData={topProductsData} designData={designData}/>}/>
+      <Route path='/' element={<HeroSection setImg={setImg} setItemPrice={setItemPrice} itemPrice={itemPrice} setCount1={setCount1} count1={count1} topProductsData={topProductsData} designData={designData}/>}/>
       <Route path='/login' element={<LoginPage setOpen={setOpen} open={open}/>}/>
       <Route path='/createAccount' element={<CreateAccount/>}/>
       <Route path='/forgot' element={<ForgotPassword/>}/>
       <Route path='/checkout' element={<Checkout/>}/>
       <Route path='/payment' element={<Payment/>}/>
       <Route path='/order' element={<OderPlaced/>}/>
-      <Route path='/shop' element={<Shop topProductsData={topProductsData}/>}/>
-      <Route path='/view' element={<ViewProduct/>}/>
+      <Route path='/shop' element={<Shop topProductsData={topProductsData} />}/>
+      {/* <Route path='/view' element={<ViewProduct/>}/> */}
+      <Route path='/cartlist' element={<CartList setImg={setImg} img={img} itemPrice={itemPrice}/>}/>
       <Route path='/blog' element={<ArticleHero articleData={articleData}/>}/>
       <Route path='/categories' element={<Categories/>}/>
       <Route path='/sittingRoom'  element={<SittingRoom  topProductsData={topProductsData}/>}/>
+      <Route path='/buy' element={<SuccessPage/>}/>
 
 
 

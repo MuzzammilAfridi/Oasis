@@ -6,8 +6,9 @@ import TopProducts from './TopProducts';
 import FAQ from './FAQ';
 import Footer from './Footer';
 import Design from './Design';
+// import { Counter } from '../../features/counter/Counter';
 
-const HeroSection = ({topProductsData, designData}) => {
+const HeroSection = ({topProductsData, setImg, designData, setCount1, count1, itemPrice, setItemPrice}) => {
 
 
 
@@ -40,8 +41,9 @@ const HeroSection = ({topProductsData, designData}) => {
          
        
       </div>
+     
       <Categories/>
-      <TopProducts topProductsData={topProductsData}/>
+      <TopProducts setCount1={setCount1} setImg={setImg} setItemPrice={setItemPrice} itemPrice={itemPrice}  count1={count1} topProductsData={topProductsData}/>
       <Design designData={designData}/>
       <FAQ/>
       <Footer/>
