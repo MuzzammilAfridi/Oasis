@@ -25,12 +25,12 @@ const SuccessPage = () => {
           <p className="text-gray-600">
             Your ad has been successfully purchased. Thank you for your trust!
           </p>
-          <button
+          {/* <button
             className="mt-6 px-5 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-300"
             onClick={() => setShow(false)}
           >
             Done
-          </button>
+          </button> */}
           <div className="mt-4">
             <Link
               to="/"

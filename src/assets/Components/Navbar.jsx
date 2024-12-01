@@ -15,8 +15,8 @@ function Navbar({ open, setOpen, count1 }) {
   //  const dispatch = useDispatch()
 
   return (
-    <nav className="bg-white shadow-md ">
-      <div className="container mx-auto px-4 py-3  flex justify-between items-center">
+    <nav className="bg-white shadow-md h-[10vh] sm:h-[15vh]">
+      <div className="container mx-auto px-4 py-3 h-full  flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
         <svg width="51" height="19" viewBox="0 0 51 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,18 +29,15 @@ function Navbar({ open, setOpen, count1 }) {
 
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
-        </div>
+       
 
         {/* Menu Items */}
         <ul
+        onClick={()=>setIsOpen(!isOpen)}
+        
           className={`${
             isOpen ? 'block' : 'hidden'
-          } absolute top-16 left-0 w-full bg-white md:static md:flex md:items-center md:justify-center md:space-x-6 transition-all ease-in-out duration-300 md:w-auto`}
+          } absolute top-[10vh] left-0 w-full  md:static md:flex md:items-center ml-32 md:justify-center md:space-x-6 z-20 shadow-lg sm:shadow-none bg-slate-300 sm:bg-white transition-all ease-in-out duration-300 md:w-auto`}
         >
           <li className="py-2 px-4 md:px-0 hover:text-blue-500">
             <Link to="/">Home</Link>
@@ -56,29 +53,40 @@ function Navbar({ open, setOpen, count1 }) {
           </li>
           <li className="py-2 px-4 sm:hidden md:px-0 hover:text-blue-500" 
          >
-            <a href="#">Get Started</a>
+            <button onClick={()=>setOpen(!open)}>Get Started</button>
           </li>
         </ul>
 
-        {/* Right Side: Add to Cart and Get Started */}
-        <div className="hidden md:flex items-center space-x-4">
+
+<div className="flex gap-3 ">
+     
+   {/* Right Side: Add to Cart and Get Started */}
+   <div className=" flex items-center space-x-4">
           
           <Link to="/cartlist">
           <button className="flex items-center relative text-gray-700 hover:text-blue-500">
-            <div className="bg-red-700 text-[10px] text-white flex items-center justify-center rounded-full w-3 absolute top-[2px] left-[10px] h-3">{qnt}</div>
+            <div className="bg-red-700 text-[10px]  text-white flex items-center justify-center rounded-full w-3 absolute top-[2px] left-[10px] h-3">{qnt}</div>
             <FiShoppingCart size={26} />
-            <span className="ml-2">Cart</span>
+            <span className="ml-2 hidden sm:block">Cart</span>
           </button>
           
           </Link>
 
           <button
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className="bg-blue-500 hidden sm:block text-white px-4 py-2 rounded hover:bg-blue-600"
             onClick={handleGetStarted}
            
           >
             Get Started
           </button>
+        </div>
+
+         {/* Mobile Menu Button */}
+         <div className="md:hidden mt-3 ">
+          <button onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          </button>
+        </div>
         </div>
       </div>
     </nav>

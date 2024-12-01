@@ -6,7 +6,7 @@ import { useState } from 'react';
 const CreateAccount = ({setOpen, setSignUp}) => {
 
   const handleLogin = ()=>{
-    console.log("login in side the Signup");
+    // console.log("login in side the Signup");
     
     setOpen(true)
     setSignUp(false)
@@ -23,8 +23,8 @@ const CreateAccount = ({setOpen, setSignUp}) => {
 
   return (
     <>
-     <div className="sm:w-[35vw] flex absolute right-0 flex-col gap-5 items-center pt-5 shadow-lg bg-gray-100 min-h-screen">
-      <button onClick={handleCloseSign} className=' absolute top-5 left-5'>X</button>
+     <div className="sm:w-[35vw] pt-36  sm:mt-0 w-screen flex absolute right-0  flex-col gap-5 items-center sm:pt-5 shadow-lg bg-gray-100 min-h-screen">
+      <button onClick={handleCloseSign} className=' absolute sm:top-5 top-10 left-5 text-xl  px-2 py-1 font-bold'>X</button>
         <h3 className='text-3xl font-semibold'>Sign Up</h3>
         <img className='w-[100px]' src="./createAcc.png" alt="img" />
         <p>Let's get your set up</p>

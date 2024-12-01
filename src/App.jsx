@@ -20,6 +20,8 @@ import TopProducts from './assets/Components/TopProducts'
 import Shop from './assets/Components/Shop'
 import CartList from './assets/Components/CartList'
 import SuccessPage from './assets/Components/SuccessPage.jsx'
+import { ToastContainer } from 'react-toastify'
+import TopProductsDetails from './assets/Components/TopProductsDetails.jsx'
 // import { Counter } from './features/counter/Counter'
 // import Design from './assets/Components/Design'
 
@@ -65,86 +67,104 @@ function App() {
       qnt : 1
     },
     {
+      id:6,
       img : './top-06.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
     {
+      id:7,
       img : './top-07.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
     {
+      id:8,
       img : './top-08.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
     {
+      id:9,
       img : './top-09.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
     {
+      id:10,
       img : './Top-10.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
     {
+      id:11,
       img : './top-11.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
     {
+      id:12,
       img : './top-12.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
     {
+      id:13,
       img : './top-13.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
     {
+      id:14,
       img : './top-14.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
     {
+      id:15,
       img : './top-15.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
     {
+      id:16,
       img : './top-16.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
     {
+      id:18,
       img : './top-17.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
     {
+      id:19,
       img : './top-18.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
     {
+      id:20,
       img : './top-19.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
     {
+      id:21,
       img : './top-20.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
     {
+      id:22,
       img : './top-21.png',
       name : "Faux Leat...",
-      price : "$129"
+      price : 129
     },
   ]
+
+
 
 
   const articleData = [
@@ -254,7 +274,7 @@ function App() {
       <Navbar setOpen={setOpen}  count1={count1} open={open} />
       {/* <Counter/> */}
 
-      {open && !signUp && (  <div className="sm:w-[52vw] w-screen h-screen  fixed right-0 top-0 z-50 transition-all duration-500">
+      {open && !signUp && (  <div className="sm:w-[52vw] w-screen h-screen  fixed right-0 sm:-top-5 z-50 transition-all duration-500">
         <LoginPage setOpen={setOpen} open={open} signUp={signUp} setSignUp={setSignUp} />
           </div>)}
       {signUp && (  <div className="sm:max-w-[40vw] w-screen min-h-screen  fixed right-0 top-0 z-50 transition-all duration-500">
@@ -265,13 +285,14 @@ function App() {
      
     <Routes>
       <Route path='/' element={<HeroSection setImg={setImg} setItemPrice={setItemPrice} itemPrice={itemPrice} setCount1={setCount1} count1={count1} topProductsData={topProductsData} designData={designData}/>}/>
-      <Route path='/login' element={<LoginPage setOpen={setOpen} open={open}/>}/>
+      <Route path='/login' element={<LoginPage setOpen={setOpen} open={open} signUp={signUp} setSignUp={setSignUp}/>}/>
       <Route path='/createAccount' element={<CreateAccount/>}/>
       <Route path='/forgot' element={<ForgotPassword/>}/>
       <Route path='/checkout' element={<Checkout/>}/>
       <Route path='/payment' element={<Payment/>}/>
       <Route path='/order' element={<OderPlaced/>}/>
-      <Route path='/shop' element={<Shop topProductsData={topProductsData} />}/>
+      <Route path='/shop' element={      <TopProducts setCount1={setCount1} setImg={setImg} setItemPrice={setItemPrice} itemPrice={itemPrice}  count1={count1} topProductsData={topProductsData}/>
+}/>
       {/* <Route path='/view' element={<ViewProduct/>}/> */}
       <Route path='/cartlist' element={<CartList setImg={setImg} img={img} itemPrice={itemPrice}/>}/>
       <Route path='/blog' element={<ArticleHero articleData={articleData}/>}/>
@@ -279,6 +300,7 @@ function App() {
       <Route path='/sittingRoom'  element={<SittingRoom  topProductsData={topProductsData}/>}/>
       <Route path='/buy' element={<SuccessPage/>}/>
 
+      <Route path="/:id" element={<TopProductsDetails topProductsData={topProductsData}/>} />
 
 
 
@@ -317,6 +339,8 @@ function App() {
 
     {/* </div> */}
     </Routes>
+    <ToastContainer/>
+    
     </div>
   )
 }

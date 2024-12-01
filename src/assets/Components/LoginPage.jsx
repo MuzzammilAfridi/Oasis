@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function LoginPage({ setOpen, open, setSignUp, signUp }) {
   const handleClose = ()=>{
-    console.log("X button is Clicked");
+    // console.log("X button is Clicked");
     setSignUp(false)
     setOpen(false)
 
@@ -14,16 +14,17 @@ function LoginPage({ setOpen, open, setSignUp, signUp }) {
 
   const handleSignup = ()=>{
     setSignUp(!signUp)
-    console.log("Sign Up is Clicked");
+    // console.log("Sign Up is Clicked");
     
   }
   return (
-    <div className="relative  ">
+    <div className="sm:w-[35vw] w-screen flex fixed right-0 top-0 flex-col gap-5   bg-gray-100 min-h-screen">
+
      
       
-      <div className="flex  items-center sm:max-h-screen overflow-y-hidden shadow-lg border bg-cyan-600 sm:w-[1/2] sm:absolute top-0 right-0 justify-center min-h-screen ">
-        <div className="w-full max-w-md bg-white p-8">
-          <button className='font-semibold'
+      <div className="flex    overflow-y-hidden  border sm:w-[1/2] absolute top-0 right-0 justify-center min-h-screen ">
+        <div className="w-full max-w-md p-8">
+          <button className='text-xl  px-2 py-1 font-bold'
           onClick={handleClose}>X</button>
           <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
           <div className="flex flex-col justify-center items-center mb-6">
@@ -71,8 +72,7 @@ function LoginPage({ setOpen, open, setSignUp, signUp }) {
                 <span className="ml-2">Apple</span>
               </button>
             </div>
-          </div>
-          <div  className="text-center sm:relative sm:bottom-3">
+            <div  className="text-center sm:relative sm:bottom-3">
             <p className="text-sm text-gray-500">
               First time here?{' '}
               <button 
@@ -82,6 +82,8 @@ function LoginPage({ setOpen, open, setSignUp, signUp }) {
               </button>
             </p>
           </div>
+          </div>
+          
         </div>
       </div>
     </div>
