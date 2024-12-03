@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 
 
 
+
 const TopProducts = ({ topProductsData, setImg, setCount1, count1, setItemPrice, itemPrice }) => {
   
   // const handleAddToCart  = ()=>{
@@ -25,14 +26,22 @@ const TopProducts = ({ topProductsData, setImg, setCount1, count1, setItemPrice,
 
   
 
-  return (
+  return ( 
+
+    // {isAuthenticated && }
+
     <div className="px-[15px] w-full max-h-[2897px] py-[30px] mx-auto">
       <h2 className="text-[20px] sm:text-[30px] sm:mx-14 text-[#2E2F33] leading-[24.2px] font-bold">
         Top Products
       </h2>
 
       {/* Grid container for products */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5 w-full">
+     
+    
+
+
+
+   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5 w-full">
         {topProductsData.map((elem, idx) => (
           <div key={idx} className="flex flex-col shadow py-1 px-1 rounded-lg border items-center justify-center">
             <Link to={`/${elem.id}`}>

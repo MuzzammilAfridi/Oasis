@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FiMenu, FiX, FiShoppingCart } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useAuth0 } from "@auth0/auth0-react";
 // import { decrement, increment,addToCart } from '../../features/counter/counterSlice'
 
 
@@ -13,6 +14,8 @@ function Navbar({ open, setOpen, count1 }) {
 
    const qnt = useSelector((state) => state.counter.totalQuantity)
   //  const dispatch = useDispatch()
+
+  const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
 
   return (
     <nav className="bg-white shadow-md h-[10vh] sm:h-[15vh]">
@@ -53,7 +56,7 @@ function Navbar({ open, setOpen, count1 }) {
           </li>
           <li className="py-2 px-4 sm:hidden md:px-0 hover:text-blue-500" 
          >
-            <button onClick={()=>setOpen(!open)}>Get Started</button>
+            <button onClick={() => loginWithRedirect()}>Get Started</button>
           </li>
         </ul>
 
@@ -72,13 +75,18 @@ function Navbar({ open, setOpen, count1 }) {
           
           </Link>
 
+         
+
+          <button className='hidden sm:block'  onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Logout</button>
+
+         {isAuthenticated ?  <img className='h-[40%] hidden sm:block rounded-full' src={user.picture} alt="img" /> : 
           <button
-            className="bg-blue-500 hidden sm:block text-white px-4 py-2 rounded hover:bg-blue-600"
-            onClick={handleGetStarted}
-           
-          >
-            Get Started
-          </button>
+          className="bg-blue-500 hidden sm:block text-white px-4 py-2 rounded hover:bg-blue-600"
+          onClick={() => loginWithRedirect()}
+         
+        >
+          Get Started
+        </button>}
         </div>
 
          {/* Mobile Menu Button */}

@@ -263,7 +263,7 @@ function App() {
   const [img, setImg] = useState('')
   
 
-  
+// console.log(user, isAuthenticated, isLoading);
   
   
 
@@ -274,17 +274,18 @@ function App() {
       <Navbar setOpen={setOpen}  count1={count1} open={open} />
       {/* <Counter/> */}
 
-      {open && !signUp && (  <div className="sm:w-[52vw] w-screen h-screen  fixed right-0 sm:-top-5 z-50 transition-all duration-500">
+      {/* {open && !signUp && (  <div className="sm:w-[52vw] w-screen h-screen  fixed right-0 sm:-top-5 z-50 transition-all duration-500">
         <LoginPage setOpen={setOpen} open={open} signUp={signUp} setSignUp={setSignUp} />
-          </div>)}
-      {signUp && (  <div className="sm:max-w-[40vw] w-screen min-h-screen  fixed right-0 top-0 z-50 transition-all duration-500">
+          </div>)} */}
+      {/* {signUp && (  <div className="sm:max-w-[40vw] w-screen min-h-screen  fixed right-0 top-0 z-50 transition-all duration-500">
         <CreateAccount setOpen={setOpen} setSignUp={setSignUp} />
-          </div>)}
+          </div>)} */}
 
 
      
     <Routes>
-      <Route path='/' element={<HeroSection setImg={setImg} setItemPrice={setItemPrice} itemPrice={itemPrice} setCount1={setCount1} count1={count1} topProductsData={topProductsData} designData={designData}/>}/>
+      <Route path='/' element={
+        <HeroSection setImg={setImg} setItemPrice={setItemPrice} itemPrice={itemPrice} setCount1={setCount1} count1={count1} topProductsData={topProductsData} designData={designData}/>}/>
       <Route path='/login' element={<LoginPage setOpen={setOpen} open={open} signUp={signUp} setSignUp={setSignUp}/>}/>
       <Route path='/createAccount' element={<CreateAccount/>}/>
       <Route path='/forgot' element={<ForgotPassword/>}/>
