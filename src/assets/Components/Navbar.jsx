@@ -76,8 +76,8 @@ function Navbar({ open, setOpen, count1 }) {
           </Link>
 
          
-
-          <button className='hidden sm:block'  onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Logout</button>
+          
+          {isAuthenticated && <button className='hidden sm:block bg-slate-500 px-4 py-2'  onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Logout</button>}
 
          {isAuthenticated ?  <img className='h-[40%] hidden sm:block rounded-full' src={user.picture} alt="img" /> : 
           <button
