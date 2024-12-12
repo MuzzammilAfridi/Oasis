@@ -14,7 +14,7 @@ const HeroSection = ({topProductsData, setImg, designData, setCount1, count1, it
 
 
   return (
-    <div className="relative max-w-[393px] sm:max-w-screen h-[569px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1280px] mx-auto">
+    <div className="relative  sm:max-w-screen h-[569px]  mx-auto">
       
       {/* Hero Content */}
       <div className={`flex transition-all duration-500`}>

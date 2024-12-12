@@ -270,7 +270,7 @@ function App() {
   return (
 
     
-    <div className="overflow-x-clip">
+    <div className="overflow-x-clip max-w-[100vw] mx-auto">
       <Navbar setOpen={setOpen}  count1={count1} open={open} />
       {/* <Counter/> */}
 
