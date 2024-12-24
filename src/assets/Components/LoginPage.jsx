@@ -6,7 +6,11 @@ import { Link } from 'react-router-dom';
 
 function LoginPage({ setOpen, open, setSignUp, signUp }) {
   const handleClose = ()=>{
-    // console.log("X button is Clicked");
+    console.log("X button is Clicked");
+
+    console.log(open);
+    console.log(signUp);
+    
     setSignUp(false)
     setOpen(false)
 

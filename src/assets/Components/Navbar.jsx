@@ -18,8 +18,8 @@ function Navbar({ open, setOpen, count1 }) {
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
 
   return (
-    <nav className="bg-white shadow-md h-[10vh] sm:h-[15vh]">
-      <div className="container mx-auto px-4 py-3 h-full  flex justify-between items-center">
+    <nav className="bg-white shadow-md h-[10vh] sm:h-[13vh]">
+      <div className="w-screen  px-8 py-3 h-full  flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
 
@@ -59,7 +59,9 @@ function Navbar({ open, setOpen, count1 }) {
           </li>
           <li className="py-2 px-4 sm:hidden md:px-0 hover:text-blue-500" 
          >
-            <button onClick={() => loginWithRedirect()}>Get Started</button>
+
+{/* onClick={() => loginWithRedirect()} */}
+            <button onClick={handleGetStarted} >Get Started</button>
           </li>
         </ul>
 
@@ -80,7 +82,7 @@ function Navbar({ open, setOpen, count1 }) {
 
          
           
-          {isAuthenticated && <button className='hidden sm:block bg-slate-500 px-4 py-2'  onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Logout</button>}
+          {/* {isAuthenticated && <button className='hidden sm:block bg-slate-500 px-4 py-2'  onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Logout</button>}
 
          {isAuthenticated ?  <img className='h-[40%] hidden sm:block rounded-full' src={user.picture} alt="img" /> : 
           <button
@@ -89,7 +91,9 @@ function Navbar({ open, setOpen, count1 }) {
          
         >
           Get Started
-        </button>}
+        </button>} */}
+
+        <button onClick={handleGetStarted}>Get Started</button>
         </div>
 
          {/* Mobile Menu Button */}
