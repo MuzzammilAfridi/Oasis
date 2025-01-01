@@ -4,7 +4,7 @@ import Navbar from './Navbar'
 const OderPlaced = () => {
   return (
     <div>
-        <Navbar/>
+        {/* <Navbar/> */}
         <div className="">
             <div className="w-screen flex justify-center mt-16">
             <img className='h-[127px] w-[127px]' src=".\ordConf.png" alt="img" />

@@ -9,7 +9,9 @@ import { Link } from 'react-router-dom';
 
 
 
-const TopProducts = ({ topProductsData, setImg, setCount1, count1, setItemPrice, itemPrice }) => {
+const TopProducts = ({ products, setImg, setCount1, count1, setItemPrice, itemPrice }) => {
+  
+  // console.log(products);
   
   // const handleAddToCart  = ()=>{
   //   setCount(count+1)
@@ -42,11 +44,11 @@ const TopProducts = ({ topProductsData, setImg, setCount1, count1, setItemPrice,
 
 
    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5 w-full">
-        {topProductsData.map((elem, idx) => (
+   {[...products].reverse().map((elem, idx) => (
           <div key={idx} className="flex flex-col shadow py-1 px-1 rounded-lg border items-center justify-center">
-            <Link to={`/${elem.id}`}>
+             <Link to={`/${elem.id || elem._id}`}>
             <img
-              className="bg-[#F3F4F7] w-[164px] h-[173px] sm:w-[296px] sm:h-[313px]"
+              className="bg-[#F3F4F7] object-contain w-[164px] h-[173px] sm:w-[296px] sm:h-[313px]"
               src={elem.img}
               alt="Product Image"
          

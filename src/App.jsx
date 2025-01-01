@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from './assets/Components/Navbar'
 import LoginPage from './assets/Components/LoginPage'
 import CreateAccount from './assets/Components/CreateAccount'
-import ForgotPassword from './assets/Components/ForgotPassword'
+import ForgotPassword from './assets/Components/ForgotPassword.jsx'
 import Checkout from './assets/Components/Checkout'
 import Payment from './assets/Components/Payment'
 import HeroSection from './assets/Components/HeroSection'
@@ -22,12 +22,19 @@ import CartList from './assets/Components/CartList'
 import SuccessPage from './assets/Components/SuccessPage.jsx'
 import { ToastContainer } from 'react-toastify'
 import TopProductsDetails from './assets/Components/TopProductsDetails.jsx'
+import Admin from './assets/Components/Admin.jsx'
+import axios from 'axios'
 // import { Counter } from './features/counter/Counter'
 // import Design from './assets/Components/Design'
 
 
 function App() {
   const [count1, setCount1] = useState(2)
+  const [products, setProducts] = useState([])
+
+  const [isAdmin, setIsAdmin] = useState(false)
+
+  
 
   const topProductsData = [
     {
@@ -164,6 +171,26 @@ function App() {
     },
   ]
 
+  
+
+
+  
+
+
+
+  useEffect(()=>{
+    const data = axios.get("http://localhost:7070/product/allproducts").then((res)=>{
+      // console.log(res.data.products);
+      setProducts([...topProductsData, ...res.data.products])
+
+      
+      
+    })
+
+    // console.log(products);
+
+  }, [])
+
 
 
 
@@ -261,6 +288,7 @@ function App() {
   const [signUp, setSignUp] = useState(false)
   const [itemPrice, setItemPrice] = useState(0)
   const [img, setImg] = useState('')
+  const [forgotPassword, setForgotPassword] = useState(false)
   
 
 // console.log(user, isAuthenticated, isLoading);
@@ -271,42 +299,47 @@ function App() {
 
     
     <div className="overflow-x-clip max-w-[100vw] mx-auto">
-      <Navbar setOpen={setOpen}  count1={count1} open={open} />
+      <Navbar setOpen={setOpen} isAdmin={isAdmin} count1={count1} open={open} />
       {/* <Counter/> */}
 
-      {console.log(open)}
+      {/* {console.log(open)} */}
       
 
       {open && !signUp && (  <div className="sm:w-[52vw] w-screen h-screen  fixed right-0 sm:-top-5 z-50 transition-all duration-500">
-        <LoginPage setOpen={setOpen} open={open} signUp={signUp} setSignUp={setSignUp} />
+        <LoginPage setForgotPassword={setForgotPassword} setOpen={setOpen} open={open} signUp={signUp} setSignUp={setSignUp} />
           </div>)}
-      {signUp && (  <div className="sm:max-w-[40vw] w-screen min-h-screen  fixed right-0 top-0 z-50 transition-all duration-500">
+      {signUp && !forgotPassword && (  <div className="sm:max-w-[40vw] w-screen min-h-screen  fixed right-0 top-0 z-50 transition-all duration-500">
         <CreateAccount setOpen={setOpen} setSignUp={setSignUp} />
           </div>)}
+
+          {forgotPassword && (  <div className="sm:max-w-[40vw] w-screen min-h-screen  fixed right-0 top-0 z-50 transition-all duration-500">
+        <ForgotPassword setForgotPassword={setForgotPassword}  setOpen={setOpen} setSignUp={setSignUp} />
+          </div>) }
 
 
      
     <Routes>
       <Route path='/' element={
-        <HeroSection setImg={setImg} setItemPrice={setItemPrice} itemPrice={itemPrice} setCount1={setCount1} count1={count1} topProductsData={topProductsData} designData={designData}/>}/>
+        <HeroSection setImg={setImg}  setItemPrice={setItemPrice} itemPrice={itemPrice} setCount1={setCount1} count1={count1} products={products} designData={designData}/>}/>
       <Route path='/login' element={<LoginPage setOpen={setOpen} open={open} signUp={signUp} setSignUp={setSignUp}/>}/>
       <Route path='/createAccount' element={<CreateAccount/>}/>
-      <Route path='/forgot' element={<ForgotPassword/>}/>
+      <Route path='/forgot' element={<ForgotPassword setOpen={setOpen}/>}/>
       <Route path='/checkout' element={<Checkout/>}/>
       <Route path='/payment' element={<Payment/>}/>
       <Route path='/order' element={<OderPlaced/>}/>
-      <Route path='/shop' element={      <TopProducts setCount1={setCount1} setImg={setImg} setItemPrice={setItemPrice} itemPrice={itemPrice}  count1={count1} topProductsData={topProductsData}/>
+      <Route path='/shop' element={      <TopProducts setCount1={setCount1} setImg={setImg} setItemPrice={setItemPrice} itemPrice={itemPrice}  count1={count1} products={products}/>
 }/>
       {/* <Route path='/view' element={<ViewProduct/>}/> */}
       <Route path='/cartlist' element={<CartList setImg={setImg} img={img} itemPrice={itemPrice}/>}/>
       <Route path='/blog' element={<ArticleHero articleData={articleData}/>}/>
       <Route path='/categories' element={<Categories/>}/>
-      <Route path='/sittingRoom'  element={<SittingRoom  topProductsData={topProductsData}/>}/>
+      <Route path='/sittingRoom'  element={<SittingRoom  products={products}/>}/>
       <Route path='/buy' element={<SuccessPage/>}/>
 
-      <Route path="/:id" element={<TopProductsDetails topProductsData={topProductsData}/>} />
+      <Route path="/:id" element={<TopProductsDetails products={products}/>} />
+      <Route path="/product/:id" element={<TopProductsDetails setForgotPassword={setForgotPassword} products={products} />} />
 
-
+      <Route path='/admin' element={<Admin/>}/>
 
 
 

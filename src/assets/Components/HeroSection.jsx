@@ -8,7 +8,7 @@ import Footer from './Footer';
 import Design from './Design';
 // import { Counter } from '../../features/counter/Counter';
 
-const HeroSection = ({topProductsData, setImg, designData, setCount1, count1, itemPrice, setItemPrice}) => {
+const HeroSection = ({setOpen, products, setImg, designData, setCount1, count1, itemPrice, setItemPrice}) => {
 
 
 
@@ -25,7 +25,7 @@ const HeroSection = ({topProductsData, setImg, designData, setCount1, count1, it
           <h3 className="text-center w-[361px] sm:w-screen sm:relative sm:bottom-5 mx-auto text-[25px] md:text-[30px] lg:text-[35px] xl:text-[61px] font-semibold leading-[30.26px] lg:leading-[64px] text-black">
             Discover the Artistry of Modern Contemporary Furniture
           </h3>
-          <p className="text-center w-[361px] sm:w-screen sm:relative sm:bottom-2 mx-auto text-[16px] md:text-[18px] lg:text-[20px] text-gray-600 h-[66px] leading-[8.36px] mt-1">
+          <p className="text-center w-[361px] sm:w-screen sm:relative sm:bottom-2 mx-auto text-[16px] md:text-[18px] lg:text-[20px] text-gray-600 h-[66px] leading-[19px] sm:leading-[30px] mt-1">
             Experience the elegance and functionality of cutting-edge design where luxury meets innovation in every piece for ultimate relaxation.
           </p>
           <div className="flex items-center justify-center sm:relative sm:bottom-5">
@@ -43,7 +43,7 @@ const HeroSection = ({topProductsData, setImg, designData, setCount1, count1, it
       </div>
      
       <Categories/>
-      <TopProducts setCount1={setCount1} setImg={setImg} setItemPrice={setItemPrice} itemPrice={itemPrice}  count1={count1} topProductsData={topProductsData}/>
+      <TopProducts setCount1={setCount1} setOpen={setOpen} setImg={setImg} setItemPrice={setItemPrice} itemPrice={itemPrice}  count1={count1} products={products}/>
       <Design designData={designData}/>
       <FAQ/>
       <Footer/>

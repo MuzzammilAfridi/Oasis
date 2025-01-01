@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import AlsoView from './AlsoView';
 
-const SittingRoom = ({ topProductsData }) => {
+const SittingRoom = ({ products }) => {
   return (
     <div className='overflow-x-hidden w-full bg-slate-50 flex-grow'>
       {/* <Navbar/> */}
@@ -15,7 +15,7 @@ const SittingRoom = ({ topProductsData }) => {
         {/* Other content here */}
         
         {/* Add TopProducts component */}
-        <TopProducts topProductsData={topProductsData} />
+        <TopProducts products={products} />
         <AlsoView/>
         <Footer/>
       </div>

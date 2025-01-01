@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom'
 
 const Categories = () => {
   return (
-    <div className='w-[375px] sm:mt-4 sm:w-screen p-[10px] sm:mb-52 max-h-[876px]'>
-        <h3 className='mb-4 sm:text-[35px] text-[24px] sm:mb-6 sm:relative sm:top-1 sm:ml-24 font-semibold'>Categories</h3>
-        <div className='flex items-center  justify-center flex-col gap-4'>
+    <div className=' sm:mt-4 w-screen p-[10px] sm:mb-52 max-h-[876px]'>
+        <h3 className='mb-4 sm:text-[35px] mx-auto text-[24px] sm:mb-6 sm:relative sm:top-1 sm:ml-24 font-semibold'>Categories</h3>
+        <div className='flex items-center   justify-center flex-col gap-4'>
         {/* <Category/>
         <Category/>
         <Category/> */}
         <Link to='/sittingRoom'>
-        <div className='w-[361px] rounded-lg  sm:w-[85vw]  h-[173px] sm:h-[303px] overflow-hidden bg-[#F3F4F7] flex items-center justify-center sm:justify-between'>
+        <div className='w-[361px] rounded-lg  sm:w-[85vw] mx-auto  h-[173px] sm:h-[303px] overflow-hidden bg-[#F3F4F7] flex items-center justify-center sm:justify-between'>
           
       <p className='relative whitespace-nowrap left-16 font-semibold sm:text-[34px]'>Sitting Room</p>
       <img className=' relative left-[145px] sm:relative sm:left-44 h-[203px] sm:h-[110%]' src="./Cate-01.png" alt="img" />

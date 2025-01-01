@@ -1,34 +1,92 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { toast } from "react-toastify";
-
+import LoginPage from './LoginPage';
+import CreateAccount from './CreateAccount';
 import {addItem} from '../../features/counter/counterSlice'
 import { useAuth0 } from "@auth0/auth0-react";
 import Validate from './Validate';
+import axios from 'axios'
+import ForgotPassword from './ForgotPassword';
 
+import { useNavigate } from 'react-router-dom';
 
+axios.defaults.withCredentials = true;
 
-const TopProductsDetails = ({topProductsData}) => {
+const TopProductsDetails = ({ products,  }) => {
+  const [open, setOpen] = useState(false)
+const [signUp, setSignUp] = useState(false)
+const [forgotPassword, setForgotPassword] = useState(false)
   const dispatch = useDispatch()
+console.log(open);
+
+
 
          
     const {id} = useParams();
+    const navigate = useNavigate()
 
-    const product = topProductsData.find((e)=> e.id === parseInt(id));
-
+    // console.log("ID from useParams:", id);
+    // console.log("Products array:", products);
+  
+    // Find product
+    const product = products.find((e) => {
+      // console.log("Checking product:", e, "against ID:", id);
+      return e.id === parseInt(id) || e._id === id;
+    });
+  
+    if (!products || products.length === 0) {
+      return <p>Loading products...</p>;
+    }
+  
     if (!product) {
-        return <p>Product not found!</p>;
-      }
+      return <p>Product not found!</p>;
+    }
 
   const notifySuccess = () => toast.success("Product added successfully!");
   const { user, isAuthenticated, isLoading, logout, } = useAuth0();
+
+  const handleBuy = ()=>{
+
+    axios.get('http://localhost:7070/isAuthenticated').then((res)=>{
+            
+      if(res.data.success == true){
+        notifySuccess()
+        dispatch(addItem(product))
+       
+      }
+     
+      
+    })
+    .catch((err)=>{
+      setOpen(true)
+
+      console.log(err);
+      
+      // navigate('/login')
+
+    })
+
+   
+  }
 
 
   return (
     <>
 
-    {isAuthenticated ? ( <div className='w-full   sm:w-screen bg-white  h-fit pb-4'>
+{open && !signUp && (  <div className="sm:w-[52vw] w-screen h-screen  fixed right-0 sm:-top-5 z-50 transition-all duration-500">
+        <LoginPage setForgotPassword={setForgotPassword} setOpen={setOpen}  open={open} signUp={signUp} setSignUp={setSignUp} />
+          </div>)}
+      {signUp && (  <div className="sm:max-w-[40vw] w-screen min-h-screen  fixed right-0 top-0 z-50 transition-all duration-500">
+        <CreateAccount setOpen={setOpen} setSignUp={setSignUp} />
+          </div>)}
+
+          {forgotPassword && (  <div className="sm:max-w-[40vw] w-screen min-h-screen  fixed right-0 top-0 z-50 transition-all duration-500">
+        <ForgotPassword setForgotPassword={setForgotPassword}  setOpen={setOpen} setSignUp={setSignUp} />
+          </div>) }
+
+    ( <div className='w-full   sm:w-screen bg-white  h-fit pb-4'>
       {/* <Navbar /> */}
   
       <div className='flex pl-4 sm:pl-10 flex-col sm:flex-row sm:items-center gap-5 mt-6 mb-8 items-start text-[#5F6980]'>
@@ -87,10 +145,7 @@ const TopProductsDetails = ({topProductsData}) => {
           {/* Buy Now Button */}
           <div className='flex justify-start mt-7 mb-5'>
             <button 
-            onClick={()=>{
-              // console.log(product);
-              notifySuccess()
-              dispatch(addItem(product))} }
+            onClick={handleBuy}
             className='w-[351px] h-[45px] sm:h-[53px] bg-[#7c71df] text-white rounded-[50px]'>Buy now</button>
           </div>
   
@@ -101,7 +156,7 @@ const TopProductsDetails = ({topProductsData}) => {
           </div>
         </div>
       </div>
-      </div>) : <Validate/>}
+      </div>) 
    
       </>
 

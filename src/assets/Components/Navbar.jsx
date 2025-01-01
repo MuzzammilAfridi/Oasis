@@ -1,13 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FiMenu, FiX, FiShoppingCart } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAuth0 } from "@auth0/auth0-react";
+import axios from 'axios';
 // import { decrement, increment,addToCart } from '../../features/counter/counterSlice'
 
 
-function Navbar({ open, setOpen, count1 }) {
+function Navbar({isAdmin, open, setOpen, count1 }) {
   const [isOpen, setIsOpen] = useState(false);
+
+
+  
+
+  const handleLogout = ()=>{
+    axios.get("http://localhost:7070/logout").then((res)=>{
+      console.log(res.data);
+      
+    })
+  }
+
    const handleGetStarted =()=>{
     setOpen(!open)
    }
@@ -59,7 +71,7 @@ function Navbar({ open, setOpen, count1 }) {
           </li>
           <li className="py-2 px-4 sm:hidden md:px-0 hover:text-blue-500" 
          >
-
+         
 {/* onClick={() => loginWithRedirect()} */}
             <button onClick={handleGetStarted} >Get Started</button>
           </li>

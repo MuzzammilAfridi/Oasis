@@ -26,8 +26,8 @@ const Payment = () => {
   };
 
   return (
-    <div className="">
-      <Navbar />
+    <div className="sm:mt-7">
+      {/* <Navbar /> */}
       <div className="flex justify-center items-center max-h-screen ">
         <div className="bg-white p-8 w-full max-w-md">
           <h2 className="text-2xl font-semibold text-center mb-6">Payment Information</h2>
@@ -122,7 +122,7 @@ const Payment = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className=" w-[100vw] absolute bottom-0 left-0 bg-[#7c71df] text-white py-3 mt-4 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 "
+              className=" w-[100vw] sm:w-[30vw] absolute sm:relative bottom-0 left-0 bg-[#7c71df] text-white py-3 mt-4 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 "
             >
               Confirm Payment
             </button>

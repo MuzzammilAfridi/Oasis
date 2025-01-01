@@ -1,8 +1,19 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 
-const ForgotPassword = () => {
+const ForgotPassword = ({setOpen, setForgotPassword}) => {
   const [email, setEmail] = useState("");
+
+  const handleClose = ()=>{
+    setOpen(false)
+    setForgotPassword(false)
+
+  }
+
+  const handleLogin = ()=>{
+    setOpen(true)
+    setForgotPassword(false)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,11 +23,15 @@ const ForgotPassword = () => {
 
   return (
     <div>
-      <Navbar />
-      <div className="flex justify-center items-center max-h-screen pt-10"> {/* Added pt-16 to add space below the navbar */}
-        <div className="bg-white p-6 max-w-md w-full h-full">
-          <h2 className="text-2xl font-bold text-center mb-6">Forgot Password</h2>
-          <div className="max-w-screen flex justify-center flex-col items-center">
+      {/* <Navbar /> */}
+      <div className="flex h-screen justify-end   max-h-screen "> {/* Added pt-16 to add space below the navbar */}
+       
+        <div className="bg-white shadow-lg p-6 max-w-md w-full h-full">
+          <div className="flex items-center justify-center">
+        <button onClick={handleClose} className="text-xl relative right-24 font-bold">X</button>
+          <h2 className="text-2xl font-bold text-center">Forgot Password</h2>
+          </div>
+          <div className="max-w-screen sm:mt-5 mt-20 flex justify-center flex-col items-center">
             <img className="h-[127px] w-[127px]" src=".\forgot.png" alt="img" />
             <p className="text-[18px] font-medium leading-[21.78px] text-center text-[#2e2f33] my-8">
               Enter your email and we'll send a link to reset your password
@@ -43,9 +58,9 @@ const ForgotPassword = () => {
           </form>
           <p className="text-center text-gray-600 mt-4">
             Remember your password?{" "}
-            <a href="/login" className="text-blue-500 hover:underline">
+            <button onClick={handleLogin} className="text-blue-500 hover:underline">
               Back to Login
-            </a>
+            </button>
           </p>
         </div>
       </div>
