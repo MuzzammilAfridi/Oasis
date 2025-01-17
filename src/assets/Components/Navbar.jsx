@@ -12,7 +12,7 @@ function Navbar({isAdmin, setIsprofile, open, setOpen, count1 }) {
   const [logout, setLogout] = useState(false)
 
   useEffect(()=>{
-    axios.get('https://oasis-backend-xayu.vercel.app/isAuthenticated')
+    axios.get('https://oasis-backend-xayu.vercel.app/isAuthenticated',{ withCredentials: true })
     .then((res)=>{
       if(res.data.success){
         setLogout(true)
