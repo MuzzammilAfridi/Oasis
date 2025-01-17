@@ -22,7 +22,7 @@ const Payment = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Payment Data:', formData);
+    // console.log('Payment Data:', formData);
   };
 
   return (

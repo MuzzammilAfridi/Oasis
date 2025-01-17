@@ -24,6 +24,8 @@ import { ToastContainer } from 'react-toastify'
 import TopProductsDetails from './assets/Components/TopProductsDetails.jsx'
 import Admin from './assets/Components/Admin.jsx'
 import axios from 'axios'
+import ResetPassword from './assets/Components/ResetPassword.jsx'
+import Profile from './assets/Components/Profile.jsx'
 // import { Counter } from './features/counter/Counter'
 // import Design from './assets/Components/Design'
 
@@ -179,7 +181,7 @@ function App() {
 
 
   useEffect(()=>{
-    const data = axios.get("http://localhost:7070/product/allproducts").then((res)=>{
+    const data = axios.get("https://oasis-backend-xayu.vercel.app/allproducts").then((res)=>{
       // console.log(res.data.products);
       setProducts([...topProductsData, ...res.data.products])
 
@@ -289,6 +291,7 @@ function App() {
   const [itemPrice, setItemPrice] = useState(0)
   const [img, setImg] = useState('')
   const [forgotPassword, setForgotPassword] = useState(false)
+  const [isProfile, setIsprofile] = useState(false)
   
 
 // console.log(user, isAuthenticated, isLoading);
@@ -299,7 +302,7 @@ function App() {
 
     
     <div className="overflow-x-clip max-w-[100vw] mx-auto">
-      <Navbar setOpen={setOpen} isAdmin={isAdmin} count1={count1} open={open} />
+      <Navbar setOpen={setOpen} setIsprofile={setIsprofile} isAdmin={isAdmin} count1={count1} open={open} />
       {/* <Counter/> */}
 
       {/* {console.log(open)} */}
@@ -316,12 +319,16 @@ function App() {
         <ForgotPassword setForgotPassword={setForgotPassword}  setOpen={setOpen} setSignUp={setSignUp} />
           </div>) }
 
+          {isProfile && (  <div className="sm:max-w-[40vw] w-screen min-h-screen  fixed right-0 top-0 z-50 transition-all duration-500">
+        <Profile setIsprofile={setIsprofile} setOpen={setOpen}  />
+          </div>) }
+
 
      
     <Routes>
       <Route path='/' element={
         <HeroSection setImg={setImg}  setItemPrice={setItemPrice} itemPrice={itemPrice} setCount1={setCount1} count1={count1} products={products} designData={designData}/>}/>
-      <Route path='/login' element={<LoginPage setOpen={setOpen} open={open} signUp={signUp} setSignUp={setSignUp}/>}/>
+      <Route path='/login' element={<LoginPage setForgotPassword={setForgotPassword} setOpen={setOpen} open={open} signUp={signUp} setSignUp={setSignUp}/>}/>
       <Route path='/createAccount' element={<CreateAccount/>}/>
       <Route path='/forgot' element={<ForgotPassword setOpen={setOpen}/>}/>
       <Route path='/checkout' element={<Checkout/>}/>
@@ -335,6 +342,7 @@ function App() {
       <Route path='/categories' element={<Categories/>}/>
       <Route path='/sittingRoom'  element={<SittingRoom  products={products}/>}/>
       <Route path='/buy' element={<SuccessPage/>}/>
+      <Route path='/reset-password/:token' element={<ResetPassword/>}/>
 
       <Route path="/:id" element={<TopProductsDetails products={products}/>} />
       <Route path="/product/:id" element={<TopProductsDetails setForgotPassword={setForgotPassword} products={products} />} />

@@ -19,7 +19,7 @@ const TopProductsDetails = ({ products,  }) => {
 const [signUp, setSignUp] = useState(false)
 const [forgotPassword, setForgotPassword] = useState(false)
   const dispatch = useDispatch()
-console.log(open);
+// console.log(open);
 
 
 
@@ -49,7 +49,7 @@ console.log(open);
 
   const handleBuy = ()=>{
 
-    axios.get('http://localhost:7070/isAuthenticated').then((res)=>{
+    axios.get('https://oasis-backend-xayu.vercel.app/isAuthenticated').then((res)=>{
             
       if(res.data.success == true){
         notifySuccess()

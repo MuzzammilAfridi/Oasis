@@ -18,7 +18,7 @@ const Admin = () => {
   useEffect(() => {
     const verifyAdmin = async () => {
       try {
-        const res = await axios.get('http://localhost:7070/isadmin');
+        const res = await axios.get('https://oasis-backend-xayu.vercel.app/isadmin');
         if (!res.data.success) {
           navigate('/');
         }
@@ -47,13 +47,16 @@ const Admin = () => {
     formData.append('file', file);
 
     try {
-      const res = await axios.post('http://localhost:7070/admin', formData, {
+      const res = await axios.post('https://oasis-backend-xayu.vercel.app/admin', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
+
+        
       });
 
       if (res.data.success) {
+        
         setMessage('Product added successfully!');
         setName('');
         setDescription('');
@@ -63,6 +66,8 @@ const Admin = () => {
         setMessage('Failed to add the product.');
       }
     } catch (error) {
+      // console.log(res.data);
+
       console.error('Error submitting product:', error);
       setMessage('An error occurred. Please try again.');
     }

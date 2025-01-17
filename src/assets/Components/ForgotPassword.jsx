@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
 
 const ForgotPassword = ({setOpen, setForgotPassword}) => {
+  const {id, token} = useParams()
+
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
 
   const handleClose = ()=>{
@@ -15,10 +22,17 @@ const ForgotPassword = ({setOpen, setForgotPassword}) => {
     setForgotPassword(false)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    // handle forgot password logic here
-    console.log("Forgot password for:", email);
+   await axios.post('http://localhost:7070/forgot-password', {email}).then((res)=>{
+    // console.log(token);
+    
+    // console.log(res.data);
+    handleClose()
+    navigate(`/reset-password/${res.data.token}`)
+    
+   })
+   
   };
 
   return (

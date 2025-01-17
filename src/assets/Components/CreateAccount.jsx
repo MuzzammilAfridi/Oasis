@@ -17,11 +17,11 @@ const CreateAccount = ({setOpen, setSignUp}) => {
     axios.defaults.withCredentials = true
   const handleSign = (e)=>{
     e.preventDefault()
-    console.log(email, password, name);
+    // console.log(email, password, name);
     
 
-    axios.post("http://localhost:7070/register", {email, password,name,phone}).then((res)=>{
-      console.log(res.data);
+    axios.post("https://oasis-backend-xayu.vercel.app/register", {email, password,name,phone}).then((res)=>{
+      // console.log(res.data);
 
       if(res.data.success == true){
         handleLogin()

@@ -7,14 +7,25 @@ import axios from 'axios';
 // import { decrement, increment,addToCart } from '../../features/counter/counterSlice'
 
 
-function Navbar({isAdmin, open, setOpen, count1 }) {
+function Navbar({isAdmin, setIsprofile, open, setOpen, count1 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [logout, setLogout] = useState(false)
+
+  useEffect(()=>{
+    axios.get('https://oasis-backend-xayu.vercel.app/isAuthenticated')
+    .then((res)=>{
+      if(res.data.success){
+        setLogout(true)
+      }
+    }
+    )
+  })
 
 
   
 
   const handleLogout = ()=>{
-    axios.get("http://localhost:7070/logout").then((res)=>{
+    axios.get("https://oasis-backend-xayu.vercel.app/logout").then((res)=>{
       console.log(res.data);
       
     })
@@ -27,7 +38,7 @@ function Navbar({isAdmin, open, setOpen, count1 }) {
    const qnt = useSelector((state) => state.counter.totalQuantity)
   //  const dispatch = useDispatch()
 
-  const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
+  // const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
 
   return (
     <nav className="bg-white shadow-md h-[10vh] sm:h-[13vh]">
@@ -73,7 +84,7 @@ function Navbar({isAdmin, open, setOpen, count1 }) {
          >
          
 {/* onClick={() => loginWithRedirect()} */}
-            <button onClick={handleGetStarted} >Get Started</button>
+            {/* <button onClick={handleGetStarted} >Get Started</button> */}
           </li>
         </ul>
 
@@ -105,7 +116,9 @@ function Navbar({isAdmin, open, setOpen, count1 }) {
           Get Started
         </button>} */}
 
-        <button onClick={handleGetStarted}>Get Started</button>
+        {logout ?( <button onClick={()=>setIsprofile(true)} className='px-5 py-2 bg-cyan-500 rounded-md hover:bg-cyan-600'>Profile</button> ): (<button onClick={handleGetStarted}>Get Started</button> )}
+
+        
         </div>
 
          {/* Mobile Menu Button */}
