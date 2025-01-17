@@ -181,7 +181,7 @@ function App() {
 
 
   useEffect(()=>{
-    const data = axios.get("https://oasis-backend-xayu.vercel.app/allproducts").then((res)=>{
+    const data = axios.get("https://oasis-backend-xayu.vercel.app/product/allproducts").then((res)=>{
       // console.log(res.data.products);
       setProducts([...topProductsData, ...res.data.products])
 
