@@ -21,16 +21,18 @@ function LoginPage({setForgotPassword, setOpen, open, setSignUp, signUp }) {
     e.preventDefault();
   
     try {
-      axios.post('https://oasis-backend-xayu.vercel.app/login', { email, password }, { withCredentials: true });
-      // console.log(res.data);
-      if(res.data.success && res.data.admin){ 
-        navigate('/admin')
-        handleClose()
-      }
-
-      if(res.data.success){
-        handleClose()
-      }
+      axios.post('https://oasis-backend-xayu.vercel.app/login', { email, password }, { withCredentials: true })
+      .then((res)=>{
+        if(res.data.success && res.data.admin){ 
+          navigate('/admin')
+          handleClose()
+        }
+  
+        if(res.data.success){
+          handleClose()
+        }
+      })
+    
 
       
     
