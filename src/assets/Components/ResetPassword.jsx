@@ -18,7 +18,7 @@ const ResetPassword = () => {
     e.preventDefault();
   // console.log(token);
 
-   axios.post(`https://oasis-backend-xayu.vercel.app/reset-password/${token}`, {password} )
+   axios.post(`https://oasis-backend-peach.vercel.app/reset-password/${token}`, {password} )
    .then(res => {
     prompt(res.data.message);
     

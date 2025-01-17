@@ -25,7 +25,7 @@ function Navbar({isAdmin, setIsprofile, open, setOpen, count1 }) {
   
 
   const handleLogout = ()=>{
-    axios.get("https://oasis-backend-xayu.vercel.app/logout").then((res)=>{
+    axios.get("https://oasis-backend-peach.vercel.app/logout").then((res)=>{
       console.log(res.data);
       
     })

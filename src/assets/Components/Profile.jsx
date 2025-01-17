@@ -21,7 +21,7 @@ function Profile({setIsprofile }) {
     e.preventDefault();
   
     try {
-      const res = await axios.post('https://oasis-backend-xayu.vercel.app/login', { email, password });
+      const res = await axios.post('https://oasis-backend-peach.vercel.app/login', { email, password });
       // console.log(res.data);
       if(res.data.success && res.data.admin){ 
         navigate('/admin')

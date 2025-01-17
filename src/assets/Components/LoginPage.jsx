@@ -21,7 +21,7 @@ function LoginPage({setForgotPassword, setOpen, open, setSignUp, signUp }) {
     e.preventDefault();
   
     try {
-      axios.post('https://oasis-backend-xayu.vercel.app/login', { email, password }, { withCredentials: true })
+      axios.post('https://oasis-backend-peach.vercel.app/login', { email, password }, { withCredentials: true })
       .then((res)=>{
         if(res.data.success && res.data.admin){ 
           navigate('/admin')

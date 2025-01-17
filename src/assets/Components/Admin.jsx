@@ -47,7 +47,7 @@ const Admin = () => {
     formData.append('file', file);
 
     try {
-      const res = await axios.post('https://oasis-backend-xayu.vercel.app/admin', formData, {
+      const res = await axios.post('https://oasis-backend-peach.vercel.app/admin', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
