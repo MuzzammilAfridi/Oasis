@@ -24,7 +24,7 @@ const ForgotPassword = ({setOpen, setForgotPassword}) => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-   await axios.post('http://localhost:7070/forgot-password', {email}).then((res)=>{
+   await axios.post('https://oasback.onrender.com/forgot-password', {email}).then((res)=>{
     // console.log(token);
     
     // console.log(res.data);

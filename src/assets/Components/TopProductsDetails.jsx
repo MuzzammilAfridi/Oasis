@@ -49,7 +49,7 @@ const [forgotPassword, setForgotPassword] = useState(false)
 
   const handleBuy = ()=>{
 
-    axios.get('https://oasis-backend-peach.vercel.app/isAuthenticated').then((res)=>{
+    axios.get('https://oasback.onrender.com/isAuthenticated').then((res)=>{
             
       if(res.data.success == true){
         notifySuccess()

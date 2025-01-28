@@ -20,7 +20,7 @@ const CreateAccount = ({setOpen, setSignUp}) => {
     // console.log(email, password, name);
     
 
-    axios.post("https://oasis-backend-peach.vercel.app/register", {email, password,name,phone}).then((res)=>{
+    axios.post("https://oasback.onrender.com/register", {email, password,name,phone}).then((res)=>{
       // console.log(res.data);
 
       if(res.data.success == true){

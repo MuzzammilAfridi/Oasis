@@ -21,7 +21,7 @@ function LoginPage({setForgotPassword, setOpen, open, setSignUp, signUp }) {
     e.preventDefault();
   
     try {
-      axios.post('https://oasis-backend-peach.vercel.app/login', { email, password }, { withCredentials: true })
+      await axios.post('https://oasback.onrender.com/login', { email, password }, { withCredentials: true })
       .then((res)=>{
         if(res.data.success && res.data.admin){ 
           navigate('/admin')

@@ -21,7 +21,7 @@ function Profile({setIsprofile }) {
     e.preventDefault();
   
     try {
-      const res = await axios.post('https://oasis-backend-peach.vercel.app/login', { email, password });
+      const res = await axios.post('https://oasback.onrender.com/login', { email, password });
       // console.log(res.data);
       if(res.data.success && res.data.admin){ 
         navigate('/admin')
@@ -37,7 +37,7 @@ function Profile({setIsprofile }) {
   };
   
   const handleLogout = ()=>{
-    axios.get('http://localhost:7070/logout').then((res)=>{
+    axios.get('https://oasback.onrender.com/logout').then((res)=>{
         handleClose()
         navigate('./')
     })

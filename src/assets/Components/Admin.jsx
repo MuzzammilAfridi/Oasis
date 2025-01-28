@@ -18,18 +18,27 @@ const Admin = () => {
   useEffect(() => {
     const verifyAdmin = async () => {
       try {
-        const res = await axios.get('https://oasis-backend-xayu.vercel.app/isadmin');
+        const res = await axios.get('https://oasback.onrender.com/isadmin', {
+          withCredentials: true, // Ensure cookies are sent
+        });
+    
         if (!res.data.success) {
-          navigate('/');
+          console.warn('Admin verification failed: User is not an admin');
+          navigate('/'); // Redirect if not admin
         }
       } catch (error) {
-        console.error('Admin verification failed:', error);
-        navigate('/'); 
+        console.error(
+          'Admin verification failed:',
+          error.response?.data?.message || error.message
+        );
+        navigate('/'); // Redirect on error
       }
     };
-
+    
+  
     verifyAdmin();
   }, [navigate]);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,7 +56,7 @@ const Admin = () => {
     formData.append('file', file);
 
     try {
-      const res = await axios.post('https://oasis-backend-peach.vercel.app/admin', formData, {
+      const res = await axios.post('https://oasback.onrender.com/admin', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

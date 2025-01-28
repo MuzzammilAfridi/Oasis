@@ -12,7 +12,7 @@ function Navbar({isAdmin, setIsprofile, open, setOpen, count1 }) {
   const [logout, setLogout] = useState(false)
 
   useEffect(()=>{
-    axios.get('https://oasis-backend-xayu.vercel.app/isAuthenticated',{ withCredentials: true })
+    axios.get('https://oasback.onrender.com/isAuthenticated',{ withCredentials: true })
     .then((res)=>{
       if(res.data.success){
         setLogout(true)
@@ -25,8 +25,9 @@ function Navbar({isAdmin, setIsprofile, open, setOpen, count1 }) {
   
 
   const handleLogout = ()=>{
-    axios.get("https://oasis-backend-peach.vercel.app/logout").then((res)=>{
-      console.log(res.data);
+    axios.get("https://oasback.onrender.com/logout").then((res)=>{
+      setLogout(true)
+      // console.log(res.data);
       
     })
   }

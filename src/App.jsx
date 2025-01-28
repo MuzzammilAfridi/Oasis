@@ -37,7 +37,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false)
 
   
-
+// console.log(products)
   const topProductsData = [
     {
       id: 1,
@@ -181,7 +181,7 @@ function App() {
 
 
   useEffect(()=>{
-    const data = axios.get("https://oasis-backend-xayu.vercel.app/product/allproducts").then((res)=>{
+    const data = axios.get("https://oasback.onrender.com/product/allproducts").then((res)=>{
       // console.log(res.data.products);
       setProducts([...topProductsData, ...res.data.products])
 

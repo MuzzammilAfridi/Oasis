@@ -19,6 +19,8 @@ const TopProducts = ({ products, setImg, setCount1, count1, setItemPrice, itemPr
     
   // }
 
+  console.log(products);
+  
   const dispatch = useDispatch()
 
   // const item = useSelector((state) => state.counter.items)
